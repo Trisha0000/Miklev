@@ -1,0 +1,55 @@
+import numpy as np
+
+quantity = input('Введите числа через запятую и без пробелов: ')
+quantity_list = quantity.split(',')
+a = 0
+summ = 0
+for i in range(len(quantity_list)):
+    quantity_list[a] = int(quantity_list[a])
+    b = np.array(quantity_list)
+    summ += quantity_list[a]
+    a += 1
+result = np.var(b)
+print('дисперсия =', round(result, len(quantity_list)))
+print("средн арифм =", len(quantity_list) / summ)
+
+
+def calculating_inf():
+    alphabet_size = int(input("Введите количество символов в алфавите: "))
+    strings = int(input('Введите кол во строк: '))
+    quantity_len = int(input("Введите кол во символов на странице: "))
+    print("Инф на странице в битах =", alphabet_size * quantity_len)
+
+calculating_inf()
+
+
+exists = True
+leapyear = False
+months = {
+    '1': 31,
+    '2': 28,
+    '3': 31,
+    '4': 30,
+    '5': 31,
+    '6': 30,
+    '7': 31,
+    '8': 31,
+    '9': 30,
+    '10': 31,
+    '11': 30,
+    '12': 31
+}
+date = input('Введите дату в формате день.месяц.год: ')
+date = date.split('.')
+date = [int(date[0]), int(date[1]), int(date[2])]
+if date[2] % 4 == 0:
+    leapyear = True
+else:
+    leapyear = False
+
+if leapyear:
+    months['2'] = 29
+
+if date[0] > months[str(date[1])]:
+    exists = False
+print(exists)
